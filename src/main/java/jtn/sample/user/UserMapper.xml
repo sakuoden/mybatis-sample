@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jtn.sample.user.UserMapper">
+    <resultMap id="user" type="jtn.sample.user.User">
+        <id property="username" column="username" />
+        <result property="password" column="password" />
+        <result property="enabled" column="enabled" />
+    </resultMap>
+
+    <insert id="insert">
+        INSERT INTO
+            users(username, password, enabled)
+        VALUES
+            (#{user.username}, #{user.password}, #{user.enabled});
+    </insert>
+
+    <select id="find" resultMap="user">
+        SELECT
+            username, password, enabled
+        FROM
+            users
+        WHERE
+            users.username = #{username};
+    </select>
+</mapper>
