@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jtn.sample.dentalclinic.DentalClinicMapper">
+    <resultMap id="clinicNumber" type="jtn.sample.dentalclinic.ClinicNumber">
+        <id property="value" column="clinic_number"/>
+    </resultMap>
+
+    <resultMap id="clinicName" type="jtn.sample.dentalclinic.ClinicName">
+        <result property="value" column="clinic_name" />
+    </resultMap>
+
+    <resultMap id="dentalClinic" type="jtn.sample.dentalclinic.DentalClinic">
+        <constructor>
+            <idArg resultMap="clinicNumber" javaType="jtn.sample.dentalclinic.ClinicNumber" />
+            <arg resultMap="clinicName" javaType="jtn.sample.dentalclinic.ClinicName" />
+        </constructor>
+    </resultMap>
+
+    <insert id="insert">
+        INSERT INTO
+            dental_clinics(clinic_number, clinic_name)
+        VALUES
+            (#{dentalClinic.clinicNumber.value}, #{dentalClinic.clinicName.value});
+    </insert>
+
+    <select id="find" resultMap="dentalClinic">
+        SELECT
+            clinic_number, clinic_name
+        FROM
+            dental_clinics
+        WHERE
+            dental_clinics.clinic_number = #{clinicNumber.value}
+    </select>
+</mapper>

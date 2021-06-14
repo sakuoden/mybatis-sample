@@ -1,0 +1,9 @@
+package jtn.sample.dentalclinic;
+
+public class ClinicName {
+    String value;
+
+    public ClinicName(String clinicName) {
+        this.value = clinicName;
+    }
+}
