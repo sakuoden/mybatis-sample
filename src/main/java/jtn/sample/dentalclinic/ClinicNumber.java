@@ -5,6 +5,8 @@ import java.util.UUID;
 public class ClinicNumber {
     String value;
 
+    public ClinicNumber() {}
+
     public ClinicNumber(String clinicNumber) {
         this.value = clinicNumber;
     }
@@ -12,5 +14,9 @@ public class ClinicNumber {
     public static ClinicNumber issue() {
         UUID uuid = UUID.randomUUID();
         return new ClinicNumber(uuid.toString());
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }
