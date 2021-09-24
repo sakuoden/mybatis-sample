@@ -14,8 +14,7 @@
     </resultMap>
 
     <select id="find" resultMap="dentalClinic">
-        SELECT clinic_number,
-               clinic_name
+        SELECT clinic_number, clinic_name
         FROM dental_clinics
         WHERE dental_clinics.clinic_number = #{clinicNumber.value}
     </select>
