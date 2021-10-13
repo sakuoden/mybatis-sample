@@ -15,8 +15,4 @@ public class ClinicNumber {
         UUID uuid = UUID.randomUUID();
         return new ClinicNumber(uuid.toString());
     }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 }

@@ -13,12 +13,4 @@ public class DentalClinic {
         this.clinicNumber = clinicNumber;
         this.clinicName = clinicName;
     }
-
-    public void setClinicName(ClinicName clinicName) {
-        this.clinicName = clinicName;
-    }
-
-    public void setClinicNumber(ClinicNumber clinicNumber) {
-        this.clinicNumber = clinicNumber;
-    }
 }
